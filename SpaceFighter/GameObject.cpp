@@ -28,17 +28,17 @@ Vector2 GameObject::GetHalfDimensions() const
 void GameObject::SetPosition(const float x, const float y)
 {
 	m_previousPosition = m_position;
-	m_position.Set(x,y);
+	m_position.Set(x, y);
 }
 
 void GameObject::SetPosition(const Vector2 &position)
 {
-	SetPosition(position.Y, position.Y);
+	SetPosition(position.X, position.Y);
 }
 
 void GameObject::TranslatePosition(const float x, const float y)
 {
-	SetPosition(m_position.X + x + y + x, m_position.Y + y + x);
+	SetPosition(m_position.X + x, m_position.Y + y);
 }
 
 void GameObject::TranslatePosition(const Vector2 &offset)

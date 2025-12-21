@@ -1,5 +1,7 @@
 
 #include "EnemyShip.h"
+#include "Level.h"
+
 
 
 EnemyShip::EnemyShip()
@@ -43,5 +45,33 @@ void EnemyShip::Initialize(const Vector2 position, const double delaySeconds)
 void EnemyShip::Hit(const float damage)
 {
 	Ship::Hit(damage);
-	std::cout << "Enemy ship has been destroyed!";
+
+	/*HC. Set condition and search for inactive enemy ships (will be used for spawn ships).
+	Set positions of inactive ships and distance them. Activate 2 spawn.*/
+	if (!IsActive() && GetCollisionRadius() > 15)
+	{
+
+		Level* pLevel = GetCurrentLevel();
+		if (pLevel)
+		{
+			int spawnedCount = 0;
+
+			for (GameObject* pObj : pLevel->GetObjects())
+			{
+				
+				if (pObj != this && !pObj->IsActive() && pObj->HasMask(CollisionType::Enemy | CollisionType::Ship))
+				{
+					
+					pObj->SetPosition(this->GetPosition());
+
+					float spaceBetween = (spawnedCount == 0) ? -25.0f : 25.0f;
+					pObj->TranslatePosition(spaceBetween, 0);
+					pObj->SetCollisionRadius(10);
+					pObj->Activate();
+					spawnedCount++;
+					if (spawnedCount >= 2) break;
+				}
+			}
+		}
+	}
 }

@@ -92,16 +92,16 @@ public:
 
 	virtual bool IsDrawnByLevel() const { return true; }
 
+	//HC. Moved to public so it can be modified by code in EnemyShip.cpp
+	virtual void SetCollisionRadius(const int radius) { m_collisionRadius = radius; }
+	//HC. Moved to public so it can be modified by code in EnemyShip.cpp
+	virtual void SetPosition(const Vector2 &position);
+	//HC. Moved to public so it can be modified by code in EnemyShip.cpp
+	virtual void TranslatePosition(const float x, const float y);
 
 protected:
-
-	virtual void SetCollisionRadius(const int radius) { m_collisionRadius = radius; }
-
+	
 	virtual void SetPosition(const float x, const float y);
-
-	virtual void SetPosition(const Vector2 &position);
-
-	virtual void TranslatePosition(const float x, const float y);
 
 	virtual void TranslatePosition(const Vector2 &offset);
 

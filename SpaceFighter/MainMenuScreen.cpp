@@ -24,7 +24,7 @@ void MainMenuScreen::LoadContent(ResourceManager& resourceManager)
 	const int COUNT = 2;
 	MenuItem *pItem;
 	Font::SetLoadSize(20, true);
-	Font *pFont = resourceManager.Load<Font>("Fonts\\ariblk.ttf");
+	Font *pFont = resourceManager.Load<Font>("Fonts\\arial.ttf");
 
 	SetDisplayCount(COUNT);
 
@@ -62,7 +62,7 @@ void MainMenuScreen::Update(const GameTime& gameTime)
 	{
 		pItem->SetAlpha(alpha);
 		isSelected = pItem->IsSelected();
-		pItem->SetColor(isSelected ? Color::RED : Color::GREENYELLOW);
+		pItem->SetColor(isSelected ? Color::WHITE : Color::BLUE);
 		pItem->SetTextOffset(isSelected ? Vector2::UNIT_X * offset : Vector2::ZERO);
 	}
 

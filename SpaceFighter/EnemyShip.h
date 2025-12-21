@@ -32,7 +32,7 @@ public:
 
 	/** @brief Applies damage to the ship.
 		@param damage The amount of damage to apply. */
-	virtual void Hit(const float damage);
+	virtual void Hit(const float damage) override;//HC. Added override
 
 	/** @brief Gets the string representation of the enemy ship.
 		@return Returns the string "Enemy Ship". */
@@ -41,7 +41,6 @@ public:
 	/** @brief Gets the collision type of the enemy ship.
 		@return Returns the collision type of the enemy ship. */
 	virtual CollisionType GetCollisionType() const { return CollisionType::Enemy | CollisionType::Ship; }
-
 
 protected:
 

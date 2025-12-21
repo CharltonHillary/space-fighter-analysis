@@ -97,7 +97,8 @@ protected:
 
 private:
 
-	float m_speed = 1200; // pixels per second
+	//HC.Change Speed
+	float m_speed = 900; // pixels per second
 
 	float m_maxHitPoints = 3;
 	float m_hitPoints = m_maxHitPoints;

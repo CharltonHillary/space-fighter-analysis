@@ -4,6 +4,7 @@
 #include "Blaster.h"
 #include "GameplayScreen.h"
 
+
 std::vector<Explosion *> Level::s_explosions;
 
 // Collision Callback Functions

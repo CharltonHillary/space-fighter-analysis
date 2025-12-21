@@ -6,6 +6,7 @@
 #include "CollisionManager.h"
 #include "Explosion.h"
 
+
 using namespace KatanaEngine;
 
 class GameplayScreen;
@@ -108,6 +109,11 @@ public:
 
 		return pClosest;
 	}
+	/*HC.Add virtual function to get and return list
+	of GameObject - will be used to search for inactive 
+	enemy ships in EnemyShip::Hit in EnemyShip.cpp */
+	virtual std::vector<GameObject*>& GetObjects()
+	{ return m_gameObjects; }
 
 
 protected:
